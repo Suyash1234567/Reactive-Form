@@ -1,0 +1,77 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h2>Fill up the Form</h2>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                          <div *ngIf="f.firstName.errors.pattern">First Name should be characters only</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                          <div *ngIf="f.lastName.errors.pattern">Last Name should be characters only</div>
+
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Gender</label>
+                      <input type="text" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
+                      <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                          <div *ngIf="f.gender.errors.required">Gender is required</div>
+                          <div *ngIf="f.gender.errors.pattern">Gender should be characters only</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Phone Number</label>
+                      <input type="text" formControlName="phn" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phn.errors }" />
+                      <div *ngIf="submitted && f.phn.errors" class="invalid-feedback">
+                          <div *ngIf="f.phn.errors.required">Phone number is required</div>
+                          <div *ngIf="f.phn.errors.pattern">Phone number should be numeric(10 chars only)</div>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+                          <div *ngIf="f.password.errors.maxlength">Password must be max 16 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Confirm Password</label>
+                      <input type="password" formControlName="confpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confpassword.errors }" />
+                      <div *ngIf="submitted && f.confpassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confpassword.errors.required">Password is required</div>
+                          <div *ngIf="f.confpassword.errors.minlength">Confirm Password must be at least 8 characters</div>
+                          <div *ngIf="f.confpassword.errors.maxlength">Confrim Password must be max 16 characters</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Emp-ID</label>
+                      <input type="number" formControlName="num" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.num.errors }" />
+                      <div *ngIf="submitted && f.num.errors" class="invalid-feedback">
+                          <div *ngIf="f.num.errors.required">Employee ID is required</div>
+                          
+                          <div *ngIf="f.num.errors.maxlength">Employee ID must be of 4 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <button [disabled]="loading" class="btn btn-primary">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
